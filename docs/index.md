@@ -1,0 +1,17 @@
+--- 
+title: "Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R"
+author: "Javier Cara"
+date: "Actualizado el 2018-02-20"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: seankross/bookdown-start
+url: 'http\://seankross.com/bookdown-start/'
+description: "Examenes resueltos con R"
+---
+
+# Introducción {-}
+
+Este documento contiene exámenes resueltos con R de la asignatura *Diseño de Experimentos y Modelos de Regresión* impartida en la ETSI Industriales de la Universidad Politécnica de Madrid.

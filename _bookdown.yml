@@ -1,0 +1,8 @@
+book_filename: "DisRegETSII_examenes"
+chapter_name: "Capítulo "
+repo: https://github.com/javiercara/DisRegETSII_examenes
+output_dir: docs
+rmd_files: ["index.Rmd", "2016_17.Rmd", "2017_18.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
+delete_merged_file: true

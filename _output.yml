@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: style.css
+  split_by: chapter
+  config:
+    toc:
+      collapse: subsection
+      before: |
+        <li><a href="./">Diseño de Experimentos y Regresion con R</a></li>
+      after: |
+        <li><a href="http://www.etsii.upm.es/ingor/estadistica/fjcara/index.html" target="blank">Javier Cara</a></li>
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: pdflatex
+  citation_package: natbib
+bookdown::epub_book:
+  stylesheet: style.css

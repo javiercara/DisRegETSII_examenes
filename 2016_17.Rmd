@@ -1,0 +1,684 @@
+# Curso 2016-17
+
+## PEC 13 marzo 2017 (Diseño de experimentos)
+
+### Ejercicio B1
+
+En un artículo de *Environment International* (vol. 18, n.º 4) se describe un experimento en el que se investiga la cantidad de radón liberado en las duchas. Para ello se diseñó un experimento en el que se utilizaron diferentes tipos de duchas (en función del diámetro de los orificios de los rociadores) por las que se dejaba correr agua enriquecida con radón. Los datos del experimento se muestran en el archivo *radon.txt*
+
+1. ¿El tamaño de los orificios afecta al porcentaje promedio de radón liberado? Utilizar $\alpha$ = 0.05 (es necesario especificar el modelo y los contrastes que se están utilizando para responder a la pregunta).
+
+2. Proporciona un intervalo de confianza al 95% para el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40
+
+3. Contrastar si el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40 es igual al 75% del porcentaje promedio cuando el diámetro de los orificios es 0.71. Utilizar $\alpha$ = 0.05
+
+4. Comprueba que se cumplen las hipótesis del modelo utilizado, explicando con detalle todas las comprobaciones realizadas.
+
+### Ejercicio B1 - Solución
+
+**1. ¿El tamaño de los orificios afecta al porcentaje promedio de radón liberado? Utilizar $\alpha$ = 0.05 (es necesario especificar el modelo y los contrastes que se están utilizando para responder a la pregunta).**
+
+```{r}
+# se leen los datos del archivo radon.txt
+datos = read.table('data/radon.txt',header=T)
+# del que se muestran las primeras filas
+head(datos)
+```
+
+El modelo que se utiliza para analizar estos datos es:
+\[
+y_{ij} = \mu_i + u_{ij}, \quad u_{ij} \rightarrow N(0,\sigma^2), \quad i=A,\cdots,F, \quad j=1,\cdots,m
+\]
+
+donde m=4. Para analizar si el tamaño de los orificios afecta al porcentaje de radón liberado planteamos el contraste
+
+\[
+H_0 : \mu_A = \mu_B = \mu_C = \mu_D = \mu_E = \mu_F
+\]
+\[
+H_1 : \quad \quad \quad \text{Alguna } \mu \text{ distinta} \quad \quad \quad \quad
+\]
+
+Este contraste se resuelve utilizando la tabla de Análisis de la Varianza:
+
+```{r}
+# comprobamos que la variable diametro es un factor
+is.factor(datos$diametro)
+# analisis de la varianza
+mod = aov(radon ~ diametro,data = datos)
+anova(mod)
+```
+
+Como el pvalor < $\alpha$, se rechaza la hipótesis nula, luego hay diferencias entre porcentajes medios de radón liberado en función del tamaño de los orificios.
+
+**2. Proporciona un intervalo de confianza al 95% para el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40**
+
+El intervalo de confianza se calcula como:
+
+\[
+\mu_E = \bar y_{E \bullet} \pm t_{\alpha/2} \sqrt{\frac{\hat s_R^2 }{m}}
+\]
+
+```{r}
+datosE = datos$radon[datos$diametro=="E"]
+n = nrow(datos) # numero total de datos
+m = 4 # numero de datos de cada nivel
+K = 6 # numero de niveles
+SR2 = 7.347 # varianza residual
+alfa = 0.05
+ta = qt(1-alfa/2,df = n-K)
+IC1 = mean(datosE) - ta*sqrt(SR2/m)
+IC2 = mean(datosE) + ta*sqrt(SR2/m)
+print(c(IC1,IC2))
+```
+
+**3. Contrastar si el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40 es igual al 75% del porcentaje promedio cuando el diámetro de los orificios es 0.71. Utilizar $\alpha$ = 0.05**
+
+El contraste que se pide es:
+\[
+H_0 : \mu_E = 0.75 \mu_C
+\]
+\[
+H_1 : \mu_E \neq 0.75 \mu_C
+\]
+
+Para resolver este contraste hay que tener en cuenta que:
+\[
+\bar y_{E \bullet} - 0.75\bar y_{C \bullet} \rightarrow N \left( \mu_E - 0.75\mu_C, \frac{\sigma^2}{m}(1+0.75^2) \right)
+\]
+
+Por tanto:
+\[
+\frac{ (\bar y_{E \bullet} - 0.75\bar y_{C \bullet}) - (\mu_E - 0.75\mu_C)}{ \sqrt{\frac{\hat s_R^2}{m}(1+0.75^2)} } \rightarrow t_{n-6}
+\]
+
+Finalmente, si $H_0$ es cierta:
+\[
+t_0 = \frac{ \bar y_{E \bullet} - 0.75\bar y_{C \bullet} }{ \sqrt{\frac{\hat s_R^2}{m}(1+0.75^2)} } \rightarrow t_{n-6}
+\]
+
+```{r}
+datosC = datos$radon[datos$diametro=="C"]
+t0 = ( mean(datosE) - 0.75*mean(datosC) ) / sqrt(SR2*(1+0.75^2)/m)
+t0
+pvalor = 1-pt(t0,df=n-K)
+pvalor
+```
+
+Como el pvalor < $\alpha$, se rechaza la hipótesis nula.
+
+**4. Comprueba que se cumplen las hipótesis del modelo utilizado, explicando con detalle todas las comprobaciones realizadas.**
+
+```{r}
+par(mfrow=c(2,2))
+plot(mod)
+par(mfrow=c(1,1))
+```
+Por tanto, se verifican las hipótesis de **normalidad** y **homocedasticidad**.
+
+
+
+## PEC 22 mayo 2017 (Regresión)
+
+### Ejercicio A2
+
+En el archivo *salario.txt* se incluye el salario y otras características de 52 profesores pertenecientes a una Universidad del medio oeste de los Estados Unidos. Estos datos fueron recogidos en la decada de 1980 para utilizarlos en un proceso legal sobre la discriminación salarial de las mujeres. Todos los profesores incluidos en el archivo son profesores con contrato permanente en la Universidad. El archivo incluye la siguiente información:
+
+- Sex: sexo (1:mujeres, 0:hombres)
+- Rank: rango académico (1:assistant professor, 2:associate professor, 3:full professor)
+- Year: numero de años en el rango actual
+- Degree: titulación (1:doctor, 0:master)
+- YSdeg: Numero de años transcurridos desde que obtuvo su titulación
+- Salary: salario anual en dolares
+
+Se pide: 
+
+1. Para el siguiente modelo de regresión:
+
+\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]
+
+  1.1. Estimar los parámetros del modelo (excluir $\sigma^2$).
+
+  1.2. Intervalo de confianza del 99% para dichos parámetros.
+
+  1.3. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?
+
+  1.4. Proporcionar el valor de la Variabilidad Total, Explicada y Residual. Plantear el contraste general de regresión y resolverlo utilizando dichos valores.
+
+2. Para el siguiente modelo de regresión:
+
+\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + \beta_3 YSdeg_i + \beta_4 Degree_i + \beta_5 RankASO_i + \beta_6 RankFULL_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]
+
+2.1. Estimar los parámetros del modelo (excluir $\sigma^2$).
+
+2.2. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?
+
+2.3. Comprobar las hipótesis del modelo (justificar la respuesta).
+
+3. A partir del modelo estimado en el apartado 2, comprobar si existen diferencias entre el salario de associate professor y full professor, es decir, resolver el contraste
+
+\[
+H_0 : \beta_5 = \beta_6; \quad H_1 : \beta_5 \neq \beta_6
+\]
+
+Nota: La matriz de varianzas-covarianzas de los parámetros estimados se calcula mediante la función vcov(m), donde m es la variable donde se ha guardado el resultado de la función lm, es decir, m = lm(y ~ x1 + x2 + ···).
+
+### Ejercicio A2 - Solución
+
+**0. Lectura de datos**
+
+```{r}
+# se leen los datos del archivo salario.txt
+datos = read.table('data/salario.txt',header=T)
+# del que se muestran las primeras filas
+head(datos)
+
+# y se preparan las variables cualitativas
+datos$Sex = factor(datos$Sex, labels=c("hombres","mujeres"))
+datos$Rank = factor(datos$Rank, labels = c("asistant","asociate","full"))
+datos$Degree = factor(datos$Degree, labels = c("master","doctor"))
+```
+
+
+**1. Para el siguiente modelo de regresión:**
+
+\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]
+
+**1.1. Estimar los parámetros del modelo (excluir $\sigma^2$).**
+
+```{r}
+m1 = lm(Salary ~ Sex + Year, data = datos)
+# coeficientes estimados
+coef(m1)
+```
+
+**1.2. Intervalo de confianza del 99% para dichos parámetros.**
+
+```{r}
+confint(m1,level=0.99)
+```
+**1.3. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?**
+
+Se plantean los siguientes contrastes:
+
+\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0,\quad i = 0,1,2
+\]
+
+Los parámetros son significativos si son distintos de cero, es decir, se rechaza $H_0$. Los p-valores de dichos contrastes los encontramos en la siguiente tabla:
+
+```{r}
+summary(m1)
+```
+
+Considerando $\alpha=0.05$, sólo son significativos $\beta_0$ y $\beta_2$. Por tanto, no hay diferencias salariales entre hombres y mujeres según este modelo.
+
+**1.4. Proporcionar el valor de la Variabilidad Total, Explicada y Residual. Plantear el contraste general de regresión y resolverlo utilizando dichos valores.**
+
+```{r}
+# numero de datos
+n = nrow(datos)
+
+# variabilidad total
+VT = (n-1)*var(datos$Salary)
+VT
+
+# variabilidad no explicada
+VNE = (n-1)*var(resid(m1))
+VNE
+
+# variabilidad explicada
+VE = VT - VNE
+VE
+```
+
+Contraste general de regresión:
+
+\[
+H_0 : \beta_1 = \beta_2 = 0; \quad H_1 : \beta_1 \neq \beta_2
+\]
+
+```{r}
+# numero de regresores
+K = 2
+
+# estadistico del contraste
+F0 = (VE/K)/(VNE/(n-K-1))
+F0
+# pvalor
+1-pf(F0,df1=K,df2=n-K-1)
+```
+
+Como p-valor < $\alpha$, se rechaza la hipótesis nula (como comprobación, en la última línea de la tabla proporcionada por *summary(m1)* se puede observar el valor del estadístico del contraste y el pvalor correspondiente).
+
+**2. Para el siguiente modelo de regresión:**
+
+\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + \beta_3 YSdeg_i + \beta_4 Degree_i + \beta_5 RankASO_i + \beta_6 RankFULL_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]
+
+**2.1. Estimar los parámetros del modelo (excluir $\sigma^2$).**
+
+```{r}
+m2 = lm(Salary ~ Sex + Year + YSdeg + Degree + Rank, data = datos)
+# coeficientes estimados
+B = coef(m2)
+B
+```
+
+**2.2. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?**
+
+Se plantean los siguientes contrastes:
+
+\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0,\quad i = 0,1,\cdots,6
+\]
+
+Los parámetros son significativos si son distintos de cero, es decir, se rechaza $H_0$. Los p-valores de dichos contrastes los encontramos en la siguiente tabla:
+
+```{r}
+summary(m2)
+```
+
+Considerando $\alpha=0.05$, sólo son significativos $\beta_0$, $\beta_2$, $\beta_5$ y $\beta_6$. Por tanto, no hay diferencias salariales entre hombres y mujeres según este modelo.
+
+**2.3. Comprobar las hipótesis del modelo (justificar la respuesta).**
+
+```{r}
+par(mfrow=c(2,2))
+plot(m2)
+par(mfrow=c(1,1))
+```
+
+
+**3. A partir del modelo estimado en el apartado 2, comprobar si existen diferencias entre el salario de associate professor y full professor, es decir, resolver el contraste**
+
+\[
+H_0 : \beta_5 = \beta_6; \quad H_1 : \beta_5 \neq \beta_6
+\]
+
+El contraste se puede reescribir como:
+
+\[
+H_0 : \beta_5 - \beta_6 = 0; \quad H_1 : \beta_5 - \beta_6 \neq 0
+\]
+
+Para resolver este contraste sabemos que:
+
+\[ \hat \beta_5 \rightarrow N(\beta_5, \sigma^2 q_{55}), \quad \hat \beta_6 \rightarrow N(\beta_6, \sigma^2 q_{66})  \]
+
+Por tanto,
+
+\[ \hat \beta_5 - \hat \beta_6 \rightarrow N(\beta_5 - \beta_6, \sigma^2 (q_{55} + q_{66} - 2q_{56}))  \]
+
+Si la hipótesis nula es cierta
+
+\[ \frac{\hat \beta_5 - \hat \beta_6}{\sqrt{s_{R}^2 (q_{55} + q_{66} - 2q_{56})}} \rightarrow t_{n-K-1}  \]
+
+Por otro lado, llamando $Qe = s_R^2*Q$, se tiene que:
+
+```{r}
+Qe = vcov(m2)
+Qe
+```
+
+```{r}
+t0 = (B[[6]] - B[[7]])/(sqrt(Qe[6,6]+Qe[7,7]-2*Qe[6,7]))
+t0
+# pvalor
+2*pt(t0,df=n-6-1)
+```
+
+Como p-valor < $\alpha$, se rechaza la hipótesis nula, es decir, hay diferencias significativas entre el salario de associate professor y full professor.
+
+Podemos comprobar este apartado utilizando los datos del archivo:
+
+```{r}
+# cambiamos la referencia de la variable cualitativa Rank
+datos$Rank = relevel(datos$Rank,ref = 'asociate')
+m3 = lm(Salary ~ Sex + Year + YSdeg + Degree + Rank, data = datos)
+summary(m3)
+```
+
+## FINAL 31 mayo 2017
+
+### Ejercicio 2 (Regresión)
+
+El archivo *burbujas.txt* contiene los datos recopilados por varios estudiantes de la Universidad de Waterloo durante la realización de un experimento en el que trataban de determinar la proporción de jabón (pjabon), glicerina (pglicer) y agua (pagua) que da lugar a una mezcla óptima para producir burbujas de jabón. Establecieron 12 mezclas (de 100 ml en todos los casos) con proporciones diferentes de los tres ingredientes y realizaron los experimentos utilizando dos marcas de jabón (Joy e Ivory) y dos tipos de agua (de botella y de grifo). Los experimentos se llevaron a cabo en el orden en el que iban preparando las mezclas (exper indica el número de experimento). Con cada mezcla repitieron 5 veces el experimento y anotaron el numero de burbujas producidas (nburb1, nburb2, …, nburb5; nburb es la suma de los 5 repeticiones). 
+
+1. Para el modelo de regresión simple: variable respuesta = log(nburb), regresor = pjabon
+
+    1.1. Escribir la ecuación del modelo y estimar los parámetros
+
+    1.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.
+
+    1.3. Plantear y resolver el contraste individual y el general de regresión. ¿Qué relación hay entre dichos contrastes? ¿Es influyente la proporción de jabón en el número de burbujas producido?
+
+    1.4. ¿Es necesario utilizar logaritmos en la variable respuesta?¿Por qué?
+
+    1.5. Utilizando los modelos de regresión simple correspondientes, justificar si la proporción de agua y la proporción de glicerina son influyentes en el número de burbujas producido.
+
+    1.6. ¿Por qué no es buena idea utilizar el siguiente modelo de regresión: variable respuesta = log(nburb); regresores = pjabon, pagua, pglicer?
+
+2. Para estudiar la influencia del tipo de jabón y del tipo de agua, estimar el siguiente modelo de regresión: variable respuesta: log(nburb); regresores: pjabon, tjabon, tagua.
+
+    2.1. Escribir la ecuación del modelo y los valores de los parámetros estimados.
+
+    2.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.
+
+    2.3. Plantear y resolver los contrastes individuales y contraste general de regresión. ¿Qué parámetros son influyentes en el número de burbujas producido?
+
+    2.4. Calcular la variabilidad total, variabilidad explicada y variabilidad no explicada.
+
+    2.5. ¿Se cumplen las hipótesis del modelo?
+
+3. El modelo final que se ha estimado con los datos es:
+
+\[ log(nburb) = 2.288 + 14.052*pjabon - 24.79*pjabon^2  - 0.5428*tjabon - 3.282*pjabon*tjabon \] 
+
+donde la varianza residual es igual a 0,1866 y 
+
+\[ 
+(X^T X)^{-1} =
+\begin{bmatrix}
+0.2863 & -2.5353 & 4.9025 & -0.165 9 & 0.6793 \\
+-2.5353 & 32.3111 & -75.5408 & 0.6793 & -3.7140 \\
+4.9025 & -75.5408 & 199.5456 & 0.0000 & 0.0000 \\
+-0.1659 &  0.6793 & 0.0000 & 0.3318 & -1.3587 \\
+0.6793 & -3.7140 & 0.0000 & -1.3587 & 7.4281 
+\end{bmatrix}
+\]
+
+Utilizando esta información:
+
+3.1. Realizar los contrastes individuales e interpretar el resultado.
+
+3.2. Calcular el coeficiente de determinación y compararlo con el del modelo del segundo apartado.
+    
+### Ejercicio 2 - Solución
+
+**0. Lectura de datos**
+
+```{r}
+# se leen los datos del archivo burbujas.txt
+datos = read.table('data/burbujas.txt',header=T)
+# del que se muestran las primeras filas
+head(datos)
+```
+
+**1. Para el modelo de regresión simple: variable respuesta = log(nburb), regresor = pjabon**
+
+**1.1. Escribir la ecuación del modelo y estimar los parámetros**
+
+Ecuación del modelo
+
+\[ log(nburb_i) = \beta_0 + \beta_1 pjabon_i + u_i, \ u_i \rightarrow N(0,\sigma^2) \]
+
+Estimación de los parámetros
+
+```{r}
+m11 = lm(log(nburb) ~ pjabon, data = datos)
+summary(m11)
+```
+
+\[ \Rightarrow \hat \beta_0 = 2.6259, \ \hat \beta_1 = 2.9999, \ \hat s_R = 0.7835 \]
+
+**1.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.**
+
+```{r}
+confint(m11,level=0.95)
+```
+
+Para la varianza:
+\[  \frac{(n-2)\hat s_R^2}{\chi_b^2} \leq \sigma^2 \leq \frac{(n-2)\hat s_R^2}{\chi_a^2} \]
+
+donde
+
+```{r}
+Chi2_a = qchisq(0.025,df = 48-2)
+Chi2_b = qchisq(0.975,df = 48-2)
+# Intervalo de confianza
+c(46*0.7835^2/Chi2_b, 46*0.7835^2/Chi2_a)
+```
+
+**1.3. Plantear y resolver el contraste individual y el general de regresión. ¿Qué relación hay entre dichos contrastes? ¿Es influyente la proporción de jabón en el número de burbujas producido?**
+
+__Contrastes individuales__
+
+\[
+H_0 : \beta_0 = 0; \quad H_1 : \beta_0 \neq 0
+\]
+
+pvalor = 2.66e-15, se rechaza H0.
+
+\[
+H_0 : \beta_1 = 0; \quad H_1 : \beta_1 \neq 0
+\]
+
+pvalor = 0.00726, se rechaza H0.
+
+__Contraste general__
+
+\[
+H_0 : \beta_1 = 0; \quad H_1 : \beta_1 \neq 0
+\]
+
+pvalor = 0.00726, se rechaza H0.
+
+El contraste individual para $\beta_1$ se resuelve con la distribución t-student, siendo el estadístico del contraste 
+
+\[ t_0 = \hat \beta_1 / \sqrt(\hat s_R^2/n) = 2.81\]
+
+El contraste general se resuelve con la ditribución F, siendo el estadístico del contraste
+
+\[ F_0 = VE/\hat s_R^2 = 7.894 \]
+
+De las propiedades de las distribuciones t-student y F se puede demostrar que 2.81^2^ = 7.894.
+
+Por último, como se rechaza H0 para los contrastes de $\beta_1$, tenemos que $\beta 1 \neq 0$, luego la proporción de jabón influye en el logaritmo del número de burbujas.
+
+**1.4. ¿Es necesario utilizar logaritmos en la variable respuesta?¿Por qué?**
+
+Si no utilizamos logaritmo, el modelo estimado sería 
+
+```{r}
+m12 = lm(nburb ~ pjabon, data = datos)
+par(mfrow=c(2,2))
+plot(m12)
+```
+
+En el gráfico *Fitted values* vs *Residuals* se observa que no se cumple la hipótesis de homocedasticidad. Sin embargo, en el modelo con logaritmo si se cumple:
+
+```{r}
+par(mfrow=c(2,2))
+plot(m11)
+```
+
+**1.5 Utilizando los modelos de regresión simple correspondientes, justificar si la proporción de agua y la proporción de glicerina son influyentes en el número de burbujas producido.**
+
+```{r}
+m13 = lm(log(nburb) ~ pagua, data = datos)
+summary(m13)
+```
+
+El pvalor para el contraste de $\beta_1$ es menor que $\alpha$, luego la proporción de agua si influye.
+
+```{r}
+m14 = lm(log(nburb) ~ pglicer, data = datos)
+summary(m14)
+```
+
+El pvalor para el contraste de $\beta_1$ es mayor que $\alpha$, luego la proporción de agua no influye.
+
+**1.6. ¿Por qué no es buena idea utilizar el siguiente modelo de regresión: variable respuesta = log(nburb); regresores = pjabon, pagua, pglicer?**
+
+Porque las tres proporciones suman 1, luego si utilizamos las tres tendríamos multicolinealidad.
+
+**2. Para estudiar la influencia del tipo de jabón y del tipo de agua, estimar el siguiente modelo de regresión: variable respuesta: log(nburb); regresores: pjabon, tjabon, tagua.**
+
+**2.1. Escribir la ecuación del modelo y los valores de los parámetros estimados.**
+
+Ecuación del modelo
+
+\[ log(nburb_i) = \beta_0 + \beta_1 pjabon_i + \beta_2 Zjabon_i + \beta_3 Zagua_i + u_i, \ u_i \rightarrow N(0,\sigma^2) \]
+
+donde Zjabon = 1 si tjabon = joy y Zjabon = 0 si tjabon = ivory; Zagua = 1 si tagua = grifo y Zagua = 0 si tagua = botella.
+
+Estimación de los parámetros
+
+```{r}
+m2 = lm(log(nburb) ~ pjabon + tjabon + tagua, data = datos)
+summary(m2)
+```
+
+\[ \Rightarrow \hat \beta_0 = 2.06074, \ \hat \beta_1 = 2.99987, \beta_2 = 1.14322, \beta_3 = -0.01291, \ \hat s_R = 0.5341 \]
+
+**2.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.**
+
+```{r}
+confint(m2,level=0.95)
+```
+
+Para la varianza:
+\[  \frac{(n-2)\hat s_R^2}{\chi_b^2} \leq \sigma^2 \leq \frac{(n-2)\hat s_R^2}{\chi_a^2} \]
+
+donde
+
+```{r}
+Chi2_a = qchisq(0.025,df = 44)
+Chi2_b = qchisq(0.975,df = 44)
+# Intervalo de confianza
+c(44*0.5341^2/Chi2_b, 44*0.5341^2/Chi2_a)
+```
+
+**2.3. Plantear y resolver los contrastes individuales y contraste general de regresión. ¿Qué parámetros son influyentes en el número de burbujas producido?**
+
+_Contraste general_
+
+\[
+H_0 : \beta_1 = \beta_2 = \beta_3 = 0; \quad H_1 : Alguno \neq 0
+\]
+
+pvalor = 2.366e-09, se rechaza H0.
+
+_Contrastes individuales_
+
+\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0, \quad i = 0,1,2,3
+\]
+
+* i=0, pvalor = 4.03e-14, se rechaza H0.
+* i=1, pvalor = 0.000164, se rechaza H0. La proporción de habón es influyente.
+* i=2, pvalor = 2.84e-09, se rechaza H0. El tipo de jabón es influyente.
+* i=3, pvalor = 0.933637, se acepta H0. El tipo de agua no es influyente.
+
+**2.4. Calcular la variabilidad total, variabilidad explicada y variabilidad no explicada.**
+
+```{r}
+VT = (48-1)*var(log(datos$nburb))
+VT
+VNE = 44*0.5341^2
+VNE
+VE = VT - VNE
+VE
+```
+
+**2.5. ¿Se cumplen las hipótesis del modelo?**
+
+```{r}
+par(mfrow=c(2,2))
+plot(m2)
+```
+
+Se cumplen homocedasticidad y normalidad. No se cumple linealidad.
+
+**3. El modelo final que se ha estimado con los datos es:**
+
+\[ log(nburb) = 2.288 + 14.052*pjabon - 24.79*pjabon^2  - 0.5428*tjabon - 3.282*pjabon*tjabon \] 
+
+donde la varianza residual es igual a 0,1866 y 
+
+\[ 
+(X^T X)^{-1} =
+\begin{bmatrix}
+0.2863 & -2.5353 & 4.9025 & -0.165 9 & 0.6793 \\
+-2.5353 & 32.3111 & -75.5408 & 0.6793 & -3.7140 \\
+4.9025 & -75.5408 & 199.5456 & 0.0000 & 0.0000 \\
+-0.1659 &  0.6793 & 0.0000 & 0.3318 & -1.3587 \\
+0.6793 & -3.7140 & 0.0000 & -1.3587 & 7.4281 
+\end{bmatrix}
+\]
+
+**Utilizando esta información:**
+
+**3.1. Realizar los contrastes individuales e interpretar el resultado.**
+
+_Contrastes_
+
+\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0, \quad i = 0,1,2,3,4
+\]
+
+El estadístico de los contrastes es:
+
+\[ t_i = \hat \beta_i / (\sqrt{\hat s_R^2 q_{ii}}), \ i= 0,1,2,3,4; \text{ Si H0 es cierta } t_i \rightarrow t_{43}\]
+
+```{r}
+#*************************************************************
+t0 = 2.288/sqrt(0.1866*0.2863)
+t0
+# pvalor
+2*(1-pt(t0,df=43))
+```
+
+Se rechaza H0, luego $\beta_0$ es distinto de cero.
+
+```{r}
+#*************************************************************
+t1 = 14.052/sqrt(0.1866*32.3111)
+t1
+# pvalor
+2*(1-pt(t1,df=43))
+```
+
+Se rechaza H0, luego $\beta_1$ es distinto de cero.
+
+```{r}
+#*************************************************************
+t2 = 24.79/sqrt(0.1866*199.5456)
+t2
+# pvalor
+2*(1-pt(t2,df=43))
+```
+
+Se rechaza H0, luego $\beta_2$ es distinto de cero.
+
+```{r}
+#*************************************************************
+t3 = 0.5428/sqrt(0.1866*0.3318)
+t3
+# pvalor
+2*(1-pt(t3,df=43))
+```
+
+Se rechaza H0, luego $\beta_3$ es distinto de cero.
+
+```{r}
+#*************************************************************
+t4 = 3.282/sqrt(0.1866*7.4281)
+t4
+# pvalor
+2*(1-pt(t4,df=43))
+```
+
+Se rechaza H0, luego $\beta_4$ es distinto de cero.
+
+**3.2. Calcular el coeficiente de determinación y compararlo con el del modelo del segundo apartado.**
+
+El coeficiente de determinación corregido es igual a:
+
+\[ \bar R^2 = 1 - \frac{\hat s_R^2}{\hat s_y^2} = \]
+
+```{r}
+1 - 0.1866/var(log(datos$nburb))
+```
+
+El coeficiente de determinación corregido del modelo del segundo apartado es igual a 0.5947. Por tanto, el nuevo modelo es mejor modelo desde el punto de vista del coeficiente de determinación.

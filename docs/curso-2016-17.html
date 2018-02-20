@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R</title>
+  <meta name="description" content="Examenes resueltos con R">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://seankross.com/bookdown-start/" />
+  
+  <meta property="og:description" content="Examenes resueltos con R" />
+  <meta name="github-repo" content="seankross/bookdown-start" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R" />
+  
+  <meta name="twitter:description" content="Examenes resueltos con R" />
+  
+
+<meta name="author" content="Javier Cara">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="curso-2017-18.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Diseño de Experimentos y Regresion con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="curso-2016-17.html"><a href="curso-2016-17.html"><i class="fa fa-check"></i><b>1</b> Curso 2016-17</a><ul>
+<li class="chapter" data-level="1.1" data-path="curso-2016-17.html"><a href="curso-2016-17.html#pec-13-marzo-2017-diseno-de-experimentos"><i class="fa fa-check"></i><b>1.1</b> PEC 13 marzo 2017 (Diseño de experimentos)</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-b1"><i class="fa fa-check"></i><b>1.1.1</b> Ejercicio B1</a></li>
+<li class="chapter" data-level="1.1.2" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-b1---solucion"><i class="fa fa-check"></i><b>1.1.2</b> Ejercicio B1 - Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="curso-2016-17.html"><a href="curso-2016-17.html#pec-22-mayo-2017-regresion"><i class="fa fa-check"></i><b>1.2</b> PEC 22 mayo 2017 (Regresión)</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-a2"><i class="fa fa-check"></i><b>1.2.1</b> Ejercicio A2</a></li>
+<li class="chapter" data-level="1.2.2" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-a2---solucion"><i class="fa fa-check"></i><b>1.2.2</b> Ejercicio A2 - Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="curso-2016-17.html"><a href="curso-2016-17.html#final-31-mayo-2017"><i class="fa fa-check"></i><b>1.3</b> FINAL 31 mayo 2017</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-2-regresion"><i class="fa fa-check"></i><b>1.3.1</b> Ejercicio 2 (Regresión)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="curso-2016-17.html"><a href="curso-2016-17.html#ejercicio-2---solucion"><i class="fa fa-check"></i><b>1.3.2</b> Ejercicio 2 - Solución</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="curso-2017-18.html"><a href="curso-2017-18.html"><i class="fa fa-check"></i><b>2</b> Curso 2017-18</a></li>
+<li class="divider"></li>
+<li><a href="http://www.etsii.upm.es/ingor/estadistica/fjcara/index.html" target="blank">Javier Cara</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="curso-2016-17" class="section level1">
+<h1><span class="header-section-number">Capítulo 1</span> Curso 2016-17</h1>
+<div id="pec-13-marzo-2017-diseno-de-experimentos" class="section level2">
+<h2><span class="header-section-number">1.1</span> PEC 13 marzo 2017 (Diseño de experimentos)</h2>
+<div id="ejercicio-b1" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Ejercicio B1</h3>
+<p>En un artículo de <em>Environment International</em> (vol. 18, n.º 4) se describe un experimento en el que se investiga la cantidad de radón liberado en las duchas. Para ello se diseñó un experimento en el que se utilizaron diferentes tipos de duchas (en función del diámetro de los orificios de los rociadores) por las que se dejaba correr agua enriquecida con radón. Los datos del experimento se muestran en el archivo <em>radon.txt</em></p>
+<ol style="list-style-type: decimal">
+<li><p>¿El tamaño de los orificios afecta al porcentaje promedio de radón liberado? Utilizar <span class="math inline">\(\alpha\)</span> = 0.05 (es necesario especificar el modelo y los contrastes que se están utilizando para responder a la pregunta).</p></li>
+<li><p>Proporciona un intervalo de confianza al 95% para el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40</p></li>
+<li><p>Contrastar si el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40 es igual al 75% del porcentaje promedio cuando el diámetro de los orificios es 0.71. Utilizar <span class="math inline">\(\alpha\)</span> = 0.05</p></li>
+<li><p>Comprueba que se cumplen las hipótesis del modelo utilizado, explicando con detalle todas las comprobaciones realizadas.</p></li>
+</ol>
+</div>
+<div id="ejercicio-b1---solucion" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Ejercicio B1 - Solución</h3>
+<p><strong>1. ¿El tamaño de los orificios afecta al porcentaje promedio de radón liberado? Utilizar <span class="math inline">\(\alpha\)</span> = 0.05 (es necesario especificar el modelo y los contrastes que se están utilizando para responder a la pregunta).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo radon.txt</span>
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/radon.txt&#39;</span>,<span class="dt">header=</span>T)
+<span class="co"># del que se muestran las primeras filas</span>
+<span class="kw">head</span>(datos)</code></pre></div>
+<pre><code>##   diametro radon
+## 1        A    80
+## 2        A    83
+## 3        A    83
+## 4        A    85
+## 5        B    75
+## 6        B    75</code></pre>
+<p>El modelo que se utiliza para analizar estos datos es: <span class="math display">\[
+y_{ij} = \mu_i + u_{ij}, \quad u_{ij} \rightarrow N(0,\sigma^2), \quad i=A,\cdots,F, \quad j=1,\cdots,m
+\]</span></p>
+<p>donde m=4. Para analizar si el tamaño de los orificios afecta al porcentaje de radón liberado planteamos el contraste</p>
+<p><span class="math display">\[
+H_0 : \mu_A = \mu_B = \mu_C = \mu_D = \mu_E = \mu_F
+\]</span> <span class="math display">\[
+H_1 : \quad \quad \quad \text{Alguna } \mu \text{ distinta} \quad \quad \quad \quad
+\]</span></p>
+<p>Este contraste se resuelve utilizando la tabla de Análisis de la Varianza:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># comprobamos que la variable diametro es un factor</span>
+<span class="kw">is.factor</span>(datos<span class="op">$</span>diametro)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># analisis de la varianza</span>
+mod =<span class="st"> </span><span class="kw">aov</span>(radon <span class="op">~</span><span class="st"> </span>diametro,<span class="dt">data =</span> datos)
+<span class="kw">anova</span>(mod)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: radon
+##           Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
+## diametro   5 1133.38 226.675  30.852 3.16e-08 ***
+## Residuals 18  132.25   7.347                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Como el pvalor &lt; <span class="math inline">\(\alpha\)</span>, se rechaza la hipótesis nula, luego hay diferencias entre porcentajes medios de radón liberado en función del tamaño de los orificios.</p>
+<p><strong>2. Proporciona un intervalo de confianza al 95% para el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40</strong></p>
+<p>El intervalo de confianza se calcula como:</p>
+<p><span class="math display">\[
+\mu_E = \bar y_{E \bullet} \pm t_{\alpha/2} \sqrt{\frac{\hat s_R^2 }{m}}
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datosE =<span class="st"> </span>datos<span class="op">$</span>radon[datos<span class="op">$</span>diametro<span class="op">==</span><span class="st">&quot;E&quot;</span>]
+n =<span class="st"> </span><span class="kw">nrow</span>(datos) <span class="co"># numero total de datos</span>
+m =<span class="st"> </span><span class="dv">4</span> <span class="co"># numero de datos de cada nivel</span>
+K =<span class="st"> </span><span class="dv">6</span> <span class="co"># numero de niveles</span>
+SR2 =<span class="st"> </span><span class="fl">7.347</span> <span class="co"># varianza residual</span>
+alfa =<span class="st"> </span><span class="fl">0.05</span>
+ta =<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="op">-</span>alfa<span class="op">/</span><span class="dv">2</span>,<span class="dt">df =</span> n<span class="op">-</span>K)
+IC1 =<span class="st"> </span><span class="kw">mean</span>(datosE) <span class="op">-</span><span class="st"> </span>ta<span class="op">*</span><span class="kw">sqrt</span>(SR2<span class="op">/</span>m)
+IC2 =<span class="st"> </span><span class="kw">mean</span>(datosE) <span class="op">+</span><span class="st"> </span>ta<span class="op">*</span><span class="kw">sqrt</span>(SR2<span class="op">/</span>m)
+<span class="kw">print</span>(<span class="kw">c</span>(IC1,IC2))</code></pre></div>
+<pre><code>## [1] 62.15269 67.84731</code></pre>
+<p><strong>3. Contrastar si el porcentaje promedio de radón liberado cuando el diámetro de los orificios es 1.40 es igual al 75% del porcentaje promedio cuando el diámetro de los orificios es 0.71. Utilizar <span class="math inline">\(\alpha\)</span> = 0.05</strong></p>
+<p>El contraste que se pide es: <span class="math display">\[
+H_0 : \mu_E = 0.75 \mu_C
+\]</span> <span class="math display">\[
+H_1 : \mu_E \neq 0.75 \mu_C
+\]</span></p>
+<p>Para resolver este contraste hay que tener en cuenta que: <span class="math display">\[
+\bar y_{E \bullet} - 0.75\bar y_{C \bullet} \rightarrow N \left( \mu_E - 0.75\mu_C, \frac{\sigma^2}{m}(1+0.75^2) \right)
+\]</span></p>
+<p>Por tanto: <span class="math display">\[
+\frac{ (\bar y_{E \bullet} - 0.75\bar y_{C \bullet}) - (\mu_E - 0.75\mu_C)}{ \sqrt{\frac{\hat s_R^2}{m}(1+0.75^2)} } \rightarrow t_{n-6}
+\]</span></p>
+<p>Finalmente, si <span class="math inline">\(H_0\)</span> es cierta: <span class="math display">\[
+t_0 = \frac{ \bar y_{E \bullet} - 0.75\bar y_{C \bullet} }{ \sqrt{\frac{\hat s_R^2}{m}(1+0.75^2)} } \rightarrow t_{n-6}
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datosC =<span class="st"> </span>datos<span class="op">$</span>radon[datos<span class="op">$</span>diametro<span class="op">==</span><span class="st">&quot;C&quot;</span>]
+t0 =<span class="st"> </span>( <span class="kw">mean</span>(datosE) <span class="op">-</span><span class="st"> </span><span class="fl">0.75</span><span class="op">*</span><span class="kw">mean</span>(datosC) ) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(SR2<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span><span class="fl">0.75</span><span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>m)
+t0</code></pre></div>
+<pre><code>## [1] 5.165032</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pvalor =<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t0,<span class="dt">df=</span>n<span class="op">-</span>K)
+pvalor</code></pre></div>
+<pre><code>## [1] 3.252273e-05</code></pre>
+<p>Como el pvalor &lt; <span class="math inline">\(\alpha\)</span>, se rechaza la hipótesis nula.</p>
+<p><strong>4. Comprueba que se cumplen las hipótesis del modelo utilizado, explicando con detalle todas las comprobaciones realizadas.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(mod)</code></pre></div>
+<p><img src="2016_17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<p>Por tanto, se verifican las hipótesis de <strong>normalidad</strong> y <strong>homocedasticidad</strong>.</p>
+</div>
+</div>
+<div id="pec-22-mayo-2017-regresion" class="section level2">
+<h2><span class="header-section-number">1.2</span> PEC 22 mayo 2017 (Regresión)</h2>
+<div id="ejercicio-a2" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Ejercicio A2</h3>
+<p>En el archivo <em>salario.txt</em> se incluye el salario y otras características de 52 profesores pertenecientes a una Universidad del medio oeste de los Estados Unidos. Estos datos fueron recogidos en la decada de 1980 para utilizarlos en un proceso legal sobre la discriminación salarial de las mujeres. Todos los profesores incluidos en el archivo son profesores con contrato permanente en la Universidad. El archivo incluye la siguiente información:</p>
+<ul>
+<li>Sex: sexo (1:mujeres, 0:hombres)</li>
+<li>Rank: rango académico (1:assistant professor, 2:associate professor, 3:full professor)</li>
+<li>Year: numero de años en el rango actual</li>
+<li>Degree: titulación (1:doctor, 0:master)</li>
+<li>YSdeg: Numero de años transcurridos desde que obtuvo su titulación</li>
+<li>Salary: salario anual en dolares</li>
+</ul>
+<p>Se pide:</p>
+<ol style="list-style-type: decimal">
+<li>Para el siguiente modelo de regresión:</li>
+</ol>
+<p><span class="math display">\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p>1.1. Estimar los parámetros del modelo (excluir <span class="math inline">\(\sigma^2\)</span>).</p>
+<p>1.2. Intervalo de confianza del 99% para dichos parámetros.</p>
+<p>1.3. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?</p>
+<p>1.4. Proporcionar el valor de la Variabilidad Total, Explicada y Residual. Plantear el contraste general de regresión y resolverlo utilizando dichos valores.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Para el siguiente modelo de regresión:</li>
+</ol>
+<p><span class="math display">\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + \beta_3 YSdeg_i + \beta_4 Degree_i + \beta_5 RankASO_i + \beta_6 RankFULL_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p>2.1. Estimar los parámetros del modelo (excluir <span class="math inline">\(\sigma^2\)</span>).</p>
+<p>2.2. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?</p>
+<p>2.3. Comprobar las hipótesis del modelo (justificar la respuesta).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>A partir del modelo estimado en el apartado 2, comprobar si existen diferencias entre el salario de associate professor y full professor, es decir, resolver el contraste</li>
+</ol>
+<p><span class="math display">\[
+H_0 : \beta_5 = \beta_6; \quad H_1 : \beta_5 \neq \beta_6
+\]</span></p>
+<p>Nota: La matriz de varianzas-covarianzas de los parámetros estimados se calcula mediante la función vcov(m), donde m es la variable donde se ha guardado el resultado de la función lm, es decir, m = lm(y ~ x1 + x2 + ···).</p>
+</div>
+<div id="ejercicio-a2---solucion" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Ejercicio A2 - Solución</h3>
+<p><strong>0. Lectura de datos</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo salario.txt</span>
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/salario.txt&#39;</span>,<span class="dt">header=</span>T)
+<span class="co"># del que se muestran las primeras filas</span>
+<span class="kw">head</span>(datos)</code></pre></div>
+<pre><code>##   Degree Rank Sex Year YSdeg Salary
+## 1      1    3   0   25    35  36350
+## 2      1    3   0   13    22  35350
+## 3      1    3   0   10    23  28200
+## 4      1    3   1    7    27  26775
+## 5      0    3   0   19    30  33696
+## 6      1    3   0   16    21  28516</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y se preparan las variables cualitativas</span>
+datos<span class="op">$</span>Sex =<span class="st"> </span><span class="kw">factor</span>(datos<span class="op">$</span>Sex, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;hombres&quot;</span>,<span class="st">&quot;mujeres&quot;</span>))
+datos<span class="op">$</span>Rank =<span class="st"> </span><span class="kw">factor</span>(datos<span class="op">$</span>Rank, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;asistant&quot;</span>,<span class="st">&quot;asociate&quot;</span>,<span class="st">&quot;full&quot;</span>))
+datos<span class="op">$</span>Degree =<span class="st"> </span><span class="kw">factor</span>(datos<span class="op">$</span>Degree, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;master&quot;</span>,<span class="st">&quot;doctor&quot;</span>))</code></pre></div>
+<p><strong>1. Para el siguiente modelo de regresión:</strong></p>
+<p><span class="math display">\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p><strong>1.1. Estimar los parámetros del modelo (excluir <span class="math inline">\(\sigma^2\)</span>).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">lm</span>(Salary <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Year, <span class="dt">data =</span> datos)
+<span class="co"># coeficientes estimados</span>
+<span class="kw">coef</span>(m1)</code></pre></div>
+<pre><code>## (Intercept)  Sexmujeres        Year 
+##  18065.4054    201.4668    759.0138</code></pre>
+<p><strong>1.2. Intervalo de confianza del 99% para dichos parámetros.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(m1,<span class="dt">level=</span><span class="fl">0.99</span>)</code></pre></div>
+<pre><code>##                  0.5 %    99.5 %
+## (Intercept) 14721.4316 21409.379
+## Sexmujeres  -3698.2519  4101.186
+## Year          441.8783  1076.149</code></pre>
+<p><strong>1.3. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?</strong></p>
+<p>Se plantean los siguientes contrastes:</p>
+<p><span class="math display">\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0,\quad i = 0,1,2
+\]</span></p>
+<p>Los parámetros son significativos si son distintos de cero, es decir, se rechaza <span class="math inline">\(H_0\)</span>. Los p-valores de dichos contrastes los encontramos en la siguiente tabla:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(m1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Salary ~ Sex + Year, data = datos)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -11034.6  -3159.4   -651.8   3184.8  13706.0 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  18065.4     1247.8  14.478  &lt; 2e-16 ***
+## Sexmujeres     201.5     1455.1   0.138     0.89    
+## Year           759.0      118.3   6.414 5.37e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4306 on 49 degrees of freedom
+## Multiple R-squared:  0.4911, Adjusted R-squared:  0.4704 
+## F-statistic: 23.65 on 2 and 49 DF,  p-value: 6.482e-08</code></pre>
+<p>Considerando <span class="math inline">\(\alpha=0.05\)</span>, sólo son significativos <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_2\)</span>. Por tanto, no hay diferencias salariales entre hombres y mujeres según este modelo.</p>
+<p><strong>1.4. Proporcionar el valor de la Variabilidad Total, Explicada y Residual. Plantear el contraste general de regresión y resolverlo utilizando dichos valores.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># numero de datos</span>
+n =<span class="st"> </span><span class="kw">nrow</span>(datos)
+
+<span class="co"># variabilidad total</span>
+VT =<span class="st"> </span>(n<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span><span class="kw">var</span>(datos<span class="op">$</span>Salary)
+VT</code></pre></div>
+<pre><code>## [1] 1785729858</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variabilidad no explicada</span>
+VNE =<span class="st"> </span>(n<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span><span class="kw">var</span>(<span class="kw">resid</span>(m1))
+VNE</code></pre></div>
+<pre><code>## [1] 908693470</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variabilidad explicada</span>
+VE =<span class="st"> </span>VT <span class="op">-</span><span class="st"> </span>VNE
+VE</code></pre></div>
+<pre><code>## [1] 877036388</code></pre>
+<p>Contraste general de regresión:</p>
+<p><span class="math display">\[
+H_0 : \beta_1 = \beta_2 = 0; \quad H_1 : \beta_1 \neq \beta_2
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># numero de regresores</span>
+K =<span class="st"> </span><span class="dv">2</span>
+
+<span class="co"># estadistico del contraste</span>
+F0 =<span class="st"> </span>(VE<span class="op">/</span>K)<span class="op">/</span>(VNE<span class="op">/</span>(n<span class="op">-</span>K<span class="op">-</span><span class="dv">1</span>))
+F0</code></pre></div>
+<pre><code>## [1] 23.64647</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">1</span><span class="op">-</span><span class="kw">pf</span>(F0,<span class="dt">df1=</span>K,<span class="dt">df2=</span>n<span class="op">-</span>K<span class="op">-</span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 6.482468e-08</code></pre>
+<p>Como p-valor &lt; <span class="math inline">\(\alpha\)</span>, se rechaza la hipótesis nula (como comprobación, en la última línea de la tabla proporcionada por <em>summary(m1)</em> se puede observar el valor del estadístico del contraste y el pvalor correspondiente).</p>
+<p><strong>2. Para el siguiente modelo de regresión:</strong></p>
+<p><span class="math display">\[ Salary_i = \beta_0 + \beta_1 Sex_i + \beta_2 Year_i + \beta_3 YSdeg_i + \beta_4 Degree_i + \beta_5 RankASO_i + \beta_6 RankFULL_i + u_i, \quad u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p><strong>2.1. Estimar los parámetros del modelo (excluir <span class="math inline">\(\sigma^2\)</span>).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">lm</span>(Salary <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Year <span class="op">+</span><span class="st"> </span>YSdeg <span class="op">+</span><span class="st"> </span>Degree <span class="op">+</span><span class="st"> </span>Rank, <span class="dt">data =</span> datos)
+<span class="co"># coeficientes estimados</span>
+B =<span class="st"> </span><span class="kw">coef</span>(m2)
+B</code></pre></div>
+<pre><code>##  (Intercept)   Sexmujeres         Year        YSdeg Degreedoctor 
+##   17134.6610    1166.3731     476.3090    -124.5743   -1388.6133 
+## Rankasociate     Rankfull 
+##    5292.3608   11118.7640</code></pre>
+<p><strong>2.2. Indicar qué parámetros son significativos (justificar la respuesta). ¿Existen diferencias salariales entre hombres y mujeres que trabajan en la Universidad de acuerdo al modelo estimado?</strong></p>
+<p>Se plantean los siguientes contrastes:</p>
+<p><span class="math display">\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0,\quad i = 0,1,\cdots,6
+\]</span></p>
+<p>Los parámetros son significativos si son distintos de cero, es decir, se rechaza <span class="math inline">\(H_0\)</span>. Los p-valores de dichos contrastes los encontramos en la siguiente tabla:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(m2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Salary ~ Sex + Year + YSdeg + Degree + Rank, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4045.2 -1094.7  -361.5   813.2  9193.1 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  17134.66    1197.70  14.306  &lt; 2e-16 ***
+## Sexmujeres    1166.37     925.57   1.260    0.214    
+## Year           476.31      94.91   5.018 8.65e-06 ***
+## YSdeg         -124.57      77.49  -1.608    0.115    
+## Degreedoctor -1388.61    1018.75  -1.363    0.180    
+## Rankasociate  5292.36    1145.40   4.621 3.22e-05 ***
+## Rankfull     11118.76    1351.77   8.225 1.62e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2398 on 45 degrees of freedom
+## Multiple R-squared:  0.855,  Adjusted R-squared:  0.8357 
+## F-statistic: 44.24 on 6 and 45 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Considerando <span class="math inline">\(\alpha=0.05\)</span>, sólo son significativos <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_2\)</span>, <span class="math inline">\(\beta_5\)</span> y <span class="math inline">\(\beta_6\)</span>. Por tanto, no hay diferencias salariales entre hombres y mujeres según este modelo.</p>
+<p><strong>2.3. Comprobar las hipótesis del modelo (justificar la respuesta).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(m2)</code></pre></div>
+<p><img src="2016_17_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<p><strong>3. A partir del modelo estimado en el apartado 2, comprobar si existen diferencias entre el salario de associate professor y full professor, es decir, resolver el contraste</strong></p>
+<p><span class="math display">\[
+H_0 : \beta_5 = \beta_6; \quad H_1 : \beta_5 \neq \beta_6
+\]</span></p>
+<p>El contraste se puede reescribir como:</p>
+<p><span class="math display">\[
+H_0 : \beta_5 - \beta_6 = 0; \quad H_1 : \beta_5 - \beta_6 \neq 0
+\]</span></p>
+<p>Para resolver este contraste sabemos que:</p>
+<p><span class="math display">\[ \hat \beta_5 \rightarrow N(\beta_5, \sigma^2 q_{55}), \quad \hat \beta_6 \rightarrow N(\beta_6, \sigma^2 q_{66})  \]</span></p>
+<p>Por tanto,</p>
+<p><span class="math display">\[ \hat \beta_5 - \hat \beta_6 \rightarrow N(\beta_5 - \beta_6, \sigma^2 (q_{55} + q_{66} - 2q_{56}))  \]</span></p>
+<p>Si la hipótesis nula es cierta</p>
+<p><span class="math display">\[ \frac{\hat \beta_5 - \hat \beta_6}{\sqrt{s_{R}^2 (q_{55} + q_{66} - 2q_{56})}} \rightarrow t_{n-K-1}  \]</span></p>
+<p>Por otro lado, llamando <span class="math inline">\(Qe = s_R^2*Q\)</span>, se tiene que:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Qe =<span class="st"> </span><span class="kw">vcov</span>(m2)
+Qe</code></pre></div>
+<pre><code>##              (Intercept) Sexmujeres       Year      YSdeg Degreedoctor
+## (Intercept)  1434484.143 -175386.46  -8211.078 -45833.995   -916022.04
+## Sexmujeres   -175386.456  856677.75  43881.635 -31844.749   -239806.22
+## Year           -8211.078   43881.63   9008.586  -4393.645    -27001.58
+## YSdeg         -45833.995  -31844.75  -4393.645   6004.123     51773.09
+## Degreedoctor -916022.036 -239806.22 -27001.580  51773.089   1037845.20
+## Rankasociate -155469.094  424849.95  29760.599 -50059.605   -205572.43
+## Rankfull      426947.845  447403.15  24578.642 -77629.177   -715026.18
+##              Rankasociate   Rankfull
+## (Intercept)    -155469.09  426947.85
+## Sexmujeres      424849.95  447403.15
+## Year             29760.60   24578.64
+## YSdeg           -50059.61  -77629.18
+## Degreedoctor   -205572.43 -715026.18
+## Rankasociate   1311936.61 1056595.99
+## Rankfull       1056595.99 1827288.64</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t0 =<span class="st"> </span>(B[[<span class="dv">6</span>]] <span class="op">-</span><span class="st"> </span>B[[<span class="dv">7</span>]])<span class="op">/</span>(<span class="kw">sqrt</span>(Qe[<span class="dv">6</span>,<span class="dv">6</span>]<span class="op">+</span>Qe[<span class="dv">7</span>,<span class="dv">7</span>]<span class="op">-</span><span class="dv">2</span><span class="op">*</span>Qe[<span class="dv">6</span>,<span class="dv">7</span>]))
+t0</code></pre></div>
+<pre><code>## [1] -5.752012</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span><span class="kw">pt</span>(t0,<span class="dt">df=</span>n<span class="op">-</span><span class="dv">6</span><span class="op">-</span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 7.278088e-07</code></pre>
+<p>Como p-valor &lt; <span class="math inline">\(\alpha\)</span>, se rechaza la hipótesis nula, es decir, hay diferencias significativas entre el salario de associate professor y full professor.</p>
+<p>Podemos comprobar este apartado utilizando los datos del archivo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cambiamos la referencia de la variable cualitativa Rank</span>
+datos<span class="op">$</span>Rank =<span class="st"> </span><span class="kw">relevel</span>(datos<span class="op">$</span>Rank,<span class="dt">ref =</span> <span class="st">&#39;asociate&#39;</span>)
+m3 =<span class="st"> </span><span class="kw">lm</span>(Salary <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Year <span class="op">+</span><span class="st"> </span>YSdeg <span class="op">+</span><span class="st"> </span>Degree <span class="op">+</span><span class="st"> </span>Rank, <span class="dt">data =</span> datos)
+<span class="kw">summary</span>(m3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Salary ~ Sex + Year + YSdeg + Degree + Rank, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4045.2 -1094.7  -361.5   813.2  9193.1 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  22427.02    1560.60  14.371  &lt; 2e-16 ***
+## Sexmujeres    1166.37     925.57   1.260    0.214    
+## Year           476.31      94.91   5.018 8.65e-06 ***
+## YSdeg         -124.57      77.49  -1.608    0.115    
+## Degreedoctor -1388.61    1018.75  -1.363    0.180    
+## Rankasistant -5292.36    1145.40  -4.621 3.22e-05 ***
+## Rankfull      5826.40    1012.93   5.752 7.28e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2398 on 45 degrees of freedom
+## Multiple R-squared:  0.855,  Adjusted R-squared:  0.8357 
+## F-statistic: 44.24 on 6 and 45 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div id="final-31-mayo-2017" class="section level2">
+<h2><span class="header-section-number">1.3</span> FINAL 31 mayo 2017</h2>
+<div id="ejercicio-2-regresion" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Ejercicio 2 (Regresión)</h3>
+<p>El archivo <em>burbujas.txt</em> contiene los datos recopilados por varios estudiantes de la Universidad de Waterloo durante la realización de un experimento en el que trataban de determinar la proporción de jabón (pjabon), glicerina (pglicer) y agua (pagua) que da lugar a una mezcla óptima para producir burbujas de jabón. Establecieron 12 mezclas (de 100 ml en todos los casos) con proporciones diferentes de los tres ingredientes y realizaron los experimentos utilizando dos marcas de jabón (Joy e Ivory) y dos tipos de agua (de botella y de grifo). Los experimentos se llevaron a cabo en el orden en el que iban preparando las mezclas (exper indica el número de experimento). Con cada mezcla repitieron 5 veces el experimento y anotaron el numero de burbujas producidas (nburb1, nburb2, …, nburb5; nburb es la suma de los 5 repeticiones).</p>
+<ol style="list-style-type: decimal">
+<li><p>Para el modelo de regresión simple: variable respuesta = log(nburb), regresor = pjabon</p>
+<p>1.1. Escribir la ecuación del modelo y estimar los parámetros</p>
+<p>1.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.</p>
+<p>1.3. Plantear y resolver el contraste individual y el general de regresión. ¿Qué relación hay entre dichos contrastes? ¿Es influyente la proporción de jabón en el número de burbujas producido?</p>
+<p>1.4. ¿Es necesario utilizar logaritmos en la variable respuesta?¿Por qué?</p>
+<p>1.5. Utilizando los modelos de regresión simple correspondientes, justificar si la proporción de agua y la proporción de glicerina son influyentes en el número de burbujas producido.</p>
+<p>1.6. ¿Por qué no es buena idea utilizar el siguiente modelo de regresión: variable respuesta = log(nburb); regresores = pjabon, pagua, pglicer?</p></li>
+<li><p>Para estudiar la influencia del tipo de jabón y del tipo de agua, estimar el siguiente modelo de regresión: variable respuesta: log(nburb); regresores: pjabon, tjabon, tagua.</p>
+<p>2.1. Escribir la ecuación del modelo y los valores de los parámetros estimados.</p>
+<p>2.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.</p>
+<p>2.3. Plantear y resolver los contrastes individuales y contraste general de regresión. ¿Qué parámetros son influyentes en el número de burbujas producido?</p>
+<p>2.4. Calcular la variabilidad total, variabilidad explicada y variabilidad no explicada.</p>
+<p>2.5. ¿Se cumplen las hipótesis del modelo?</p></li>
+<li><p>El modelo final que se ha estimado con los datos es:</p></li>
+</ol>
+<p><span class="math display">\[ log(nburb) = 2.288 + 14.052*pjabon - 24.79*pjabon^2  - 0.5428*tjabon - 3.282*pjabon*tjabon \]</span></p>
+<p>donde la varianza residual es igual a 0,1866 y</p>
+<p><span class="math display">\[ 
+(X^T X)^{-1} =
+\begin{bmatrix}
+0.2863 &amp; -2.5353 &amp; 4.9025 &amp; -0.165 9 &amp; 0.6793 \\
+-2.5353 &amp; 32.3111 &amp; -75.5408 &amp; 0.6793 &amp; -3.7140 \\
+4.9025 &amp; -75.5408 &amp; 199.5456 &amp; 0.0000 &amp; 0.0000 \\
+-0.1659 &amp;  0.6793 &amp; 0.0000 &amp; 0.3318 &amp; -1.3587 \\
+0.6793 &amp; -3.7140 &amp; 0.0000 &amp; -1.3587 &amp; 7.4281 
+\end{bmatrix}
+\]</span></p>
+<p>Utilizando esta información:</p>
+<p>3.1. Realizar los contrastes individuales e interpretar el resultado.</p>
+<p>3.2. Calcular el coeficiente de determinación y compararlo con el del modelo del segundo apartado.</p>
+</div>
+<div id="ejercicio-2---solucion" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Ejercicio 2 - Solución</h3>
+<p><strong>0. Lectura de datos</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo burbujas.txt</span>
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/burbujas.txt&#39;</span>,<span class="dt">header=</span>T)
+<span class="co"># del que se muestran las primeras filas</span>
+<span class="kw">head</span>(datos)</code></pre></div>
+<pre><code>##   exper pagua pjabon pglicer tjabon   tagua nburb1 nburb2 nburb3 nburb4
+## 1     2  0.60   0.35    0.05    joy botella     19     25     25     25
+## 2     3  0.60   0.25    0.15    joy botella     13     10     14     12
+## 3    20  0.65   0.35    0.00    joy botella      9      9      7      6
+## 4    32  0.65   0.25    0.10    joy botella     16      7     12     13
+## 5     1  0.75   0.25    0.05    joy botella     11     13     15      9
+## 6    15  0.70   0.15    0.15    joy botella      7     11     11     13
+##   nburb5 nburb
+## 1     25   119
+## 2     14    63
+## 3      8    39
+## 4     12    60
+## 5     16    64
+## 6     12    54</code></pre>
+<p><strong>1. Para el modelo de regresión simple: variable respuesta = log(nburb), regresor = pjabon</strong></p>
+<p><strong>1.1. Escribir la ecuación del modelo y estimar los parámetros</strong></p>
+<p>Ecuación del modelo</p>
+<p><span class="math display">\[ log(nburb_i) = \beta_0 + \beta_1 pjabon_i + u_i, \ u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p>Estimación de los parámetros</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m11 =<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(nburb) <span class="op">~</span><span class="st"> </span>pjabon, <span class="dt">data =</span> datos)
+<span class="kw">summary</span>(m11)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(nburb) ~ pjabon, data = datos)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.06641 -0.39592 -0.02506  0.71849  1.17301 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   2.6259     0.2257   11.63 2.66e-15 ***
+## pjabon        2.9999     1.0677    2.81  0.00726 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.7835 on 46 degrees of freedom
+## Multiple R-squared:  0.1465, Adjusted R-squared:  0.1279 
+## F-statistic: 7.894 on 1 and 46 DF,  p-value: 0.00726</code></pre>
+<p><span class="math display">\[ \Rightarrow \hat \beta_0 = 2.6259, \ \hat \beta_1 = 2.9999, \ \hat s_R = 0.7835 \]</span></p>
+<p><strong>1.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(m11,<span class="dt">level=</span><span class="fl">0.95</span>)</code></pre></div>
+<pre><code>##                 2.5 %   97.5 %
+## (Intercept) 2.1716154 3.080167
+## pjabon      0.8506682 5.149073</code></pre>
+<p>Para la varianza: <span class="math display">\[  \frac{(n-2)\hat s_R^2}{\chi_b^2} \leq \sigma^2 \leq \frac{(n-2)\hat s_R^2}{\chi_a^2} \]</span></p>
+<p>donde</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Chi2_a =<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.025</span>,<span class="dt">df =</span> <span class="dv">48</span><span class="op">-</span><span class="dv">2</span>)
+Chi2_b =<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.975</span>,<span class="dt">df =</span> <span class="dv">48</span><span class="op">-</span><span class="dv">2</span>)
+<span class="co"># Intervalo de confianza</span>
+<span class="kw">c</span>(<span class="dv">46</span><span class="op">*</span><span class="fl">0.7835</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span>Chi2_b, <span class="dv">46</span><span class="op">*</span><span class="fl">0.7835</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span>Chi2_a)</code></pre></div>
+<pre><code>## [1] 0.4238906 0.9683838</code></pre>
+<p><strong>1.3. Plantear y resolver el contraste individual y el general de regresión. ¿Qué relación hay entre dichos contrastes? ¿Es influyente la proporción de jabón en el número de burbujas producido?</strong></p>
+<p><strong>Contrastes individuales</strong></p>
+<p><span class="math display">\[
+H_0 : \beta_0 = 0; \quad H_1 : \beta_0 \neq 0
+\]</span></p>
+<p>pvalor = 2.66e-15, se rechaza H0.</p>
+<p><span class="math display">\[
+H_0 : \beta_1 = 0; \quad H_1 : \beta_1 \neq 0
+\]</span></p>
+<p>pvalor = 0.00726, se rechaza H0.</p>
+<p><strong>Contraste general</strong></p>
+<p><span class="math display">\[
+H_0 : \beta_1 = 0; \quad H_1 : \beta_1 \neq 0
+\]</span></p>
+<p>pvalor = 0.00726, se rechaza H0.</p>
+<p>El contraste individual para <span class="math inline">\(\beta_1\)</span> se resuelve con la distribución t-student, siendo el estadístico del contraste</p>
+<p><span class="math display">\[ t_0 = \hat \beta_1 / \sqrt(\hat s_R^2/n) = 2.81\]</span></p>
+<p>El contraste general se resuelve con la ditribución F, siendo el estadístico del contraste</p>
+<p><span class="math display">\[ F_0 = VE/\hat s_R^2 = 7.894 \]</span></p>
+<p>De las propiedades de las distribuciones t-student y F se puede demostrar que 2.81<sup>2</sup> = 7.894.</p>
+<p>Por último, como se rechaza H0 para los contrastes de <span class="math inline">\(\beta_1\)</span>, tenemos que <span class="math inline">\(\beta 1 \neq 0\)</span>, luego la proporción de jabón influye en el logaritmo del número de burbujas.</p>
+<p><strong>1.4. ¿Es necesario utilizar logaritmos en la variable respuesta?¿Por qué?</strong></p>
+<p>Si no utilizamos logaritmo, el modelo estimado sería</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m12 =<span class="st"> </span><span class="kw">lm</span>(nburb <span class="op">~</span><span class="st"> </span>pjabon, <span class="dt">data =</span> datos)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(m12)</code></pre></div>
+<p><img src="2016_17_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>En el gráfico <em>Fitted values</em> vs <em>Residuals</em> se observa que no se cumple la hipótesis de homocedasticidad. Sin embargo, en el modelo con logaritmo si se cumple:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(m11)</code></pre></div>
+<p><img src="2016_17_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><strong>1.5 Utilizando los modelos de regresión simple correspondientes, justificar si la proporción de agua y la proporción de glicerina son influyentes en el número de burbujas producido.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m13 =<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(nburb) <span class="op">~</span><span class="st"> </span>pagua, <span class="dt">data =</span> datos)
+<span class="kw">summary</span>(m13)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(nburb) ~ pagua, data = datos)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.85031 -0.52979  0.00535  0.63460  1.26236 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   5.2902     0.7968   6.640 3.17e-08 ***
+## pagua        -2.8161     1.0497  -2.683   0.0101 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.7886 on 46 degrees of freedom
+## Multiple R-squared:  0.1353, Adjusted R-squared:  0.1165 
+## F-statistic: 7.197 on 1 and 46 DF,  p-value: 0.01011</code></pre>
+<p>El pvalor para el contraste de <span class="math inline">\(\beta_1\)</span> es menor que <span class="math inline">\(\alpha\)</span>, luego la proporción de agua si influye.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m14 =<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(nburb) <span class="op">~</span><span class="st"> </span>pglicer, <span class="dt">data =</span> datos)
+<span class="kw">summary</span>(m14)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(nburb) ~ pglicer, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.0806 -0.4792 -0.1568  0.7989  1.6137 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   3.1425     0.1962  16.015   &lt;2e-16 ***
+## pglicer       0.4588     2.1916   0.209    0.835    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8477 on 46 degrees of freedom
+## Multiple R-squared:  0.0009516,  Adjusted R-squared:  -0.02077 
+## F-statistic: 0.04382 on 1 and 46 DF,  p-value: 0.8351</code></pre>
+<p>El pvalor para el contraste de <span class="math inline">\(\beta_1\)</span> es mayor que <span class="math inline">\(\alpha\)</span>, luego la proporción de agua no influye.</p>
+<p><strong>1.6. ¿Por qué no es buena idea utilizar el siguiente modelo de regresión: variable respuesta = log(nburb); regresores = pjabon, pagua, pglicer?</strong></p>
+<p>Porque las tres proporciones suman 1, luego si utilizamos las tres tendríamos multicolinealidad.</p>
+<p><strong>2. Para estudiar la influencia del tipo de jabón y del tipo de agua, estimar el siguiente modelo de regresión: variable respuesta: log(nburb); regresores: pjabon, tjabon, tagua.</strong></p>
+<p><strong>2.1. Escribir la ecuación del modelo y los valores de los parámetros estimados.</strong></p>
+<p>Ecuación del modelo</p>
+<p><span class="math display">\[ log(nburb_i) = \beta_0 + \beta_1 pjabon_i + \beta_2 Zjabon_i + \beta_3 Zagua_i + u_i, \ u_i \rightarrow N(0,\sigma^2) \]</span></p>
+<p>donde Zjabon = 1 si tjabon = joy y Zjabon = 0 si tjabon = ivory; Zagua = 1 si tagua = grifo y Zagua = 0 si tagua = botella.</p>
+<p>Estimación de los parámetros</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(nburb) <span class="op">~</span><span class="st"> </span>pjabon <span class="op">+</span><span class="st"> </span>tjabon <span class="op">+</span><span class="st"> </span>tagua, <span class="dt">data =</span> datos)
+<span class="kw">summary</span>(m2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(nburb) ~ pjabon + tjabon + tagua, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.4883 -0.2551  0.1493  0.3514  0.8767 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  2.06074    0.18857  10.928 4.03e-14 ***
+## pjabon       2.99987    0.72789   4.121 0.000164 ***
+## tjabonjoy    1.14322    0.15419   7.414 2.84e-09 ***
+## taguagrifo  -0.01291    0.15419  -0.084 0.933637    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.5341 on 44 degrees of freedom
+## Multiple R-squared:  0.6206, Adjusted R-squared:  0.5947 
+## F-statistic: 23.99 on 3 and 44 DF,  p-value: 2.366e-09</code></pre>
+<p><span class="math display">\[ \Rightarrow \hat \beta_0 = 2.06074, \ \hat \beta_1 = 2.99987, \beta_2 = 1.14322, \beta_3 = -0.01291, \ \hat s_R = 0.5341 \]</span></p>
+<p><strong>2.2. Calcular un intervalo de confianza del 95% para todos los parámetros estimados.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(m2,<span class="dt">level=</span><span class="fl">0.95</span>)</code></pre></div>
+<pre><code>##                  2.5 %   97.5 %
+## (Intercept)  1.6806983 2.440779
+## pjabon       1.5328964 4.466845
+## tjabonjoy    0.8324612 1.453976
+## taguagrifo  -0.3236706 0.297844</code></pre>
+<p>Para la varianza: <span class="math display">\[  \frac{(n-2)\hat s_R^2}{\chi_b^2} \leq \sigma^2 \leq \frac{(n-2)\hat s_R^2}{\chi_a^2} \]</span></p>
+<p>donde</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Chi2_a =<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.025</span>,<span class="dt">df =</span> <span class="dv">44</span>)
+Chi2_b =<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.975</span>,<span class="dt">df =</span> <span class="dv">44</span>)
+<span class="co"># Intervalo de confianza</span>
+<span class="kw">c</span>(<span class="dv">44</span><span class="op">*</span><span class="fl">0.5341</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span>Chi2_b, <span class="dv">44</span><span class="op">*</span><span class="fl">0.5341</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span>Chi2_a)</code></pre></div>
+<pre><code>## [1] 0.1955028 0.4551863</code></pre>
+<p><strong>2.3. Plantear y resolver los contrastes individuales y contraste general de regresión. ¿Qué parámetros son influyentes en el número de burbujas producido?</strong></p>
+<p><em>Contraste general</em></p>
+<p><span class="math display">\[
+H_0 : \beta_1 = \beta_2 = \beta_3 = 0; \quad H_1 : Alguno \neq 0
+\]</span></p>
+<p>pvalor = 2.366e-09, se rechaza H0.</p>
+<p><em>Contrastes individuales</em></p>
+<p><span class="math display">\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0, \quad i = 0,1,2,3
+\]</span></p>
+<ul>
+<li>i=0, pvalor = 4.03e-14, se rechaza H0.</li>
+<li>i=1, pvalor = 0.000164, se rechaza H0. La proporción de habón es influyente.</li>
+<li>i=2, pvalor = 2.84e-09, se rechaza H0. El tipo de jabón es influyente.</li>
+<li>i=3, pvalor = 0.933637, se acepta H0. El tipo de agua no es influyente.</li>
+</ul>
+<p><strong>2.4. Calcular la variabilidad total, variabilidad explicada y variabilidad no explicada.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VT =<span class="st"> </span>(<span class="dv">48</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span><span class="kw">var</span>(<span class="kw">log</span>(datos<span class="op">$</span>nburb))
+VT</code></pre></div>
+<pre><code>## [1] 33.08499</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VNE =<span class="st"> </span><span class="dv">44</span><span class="op">*</span><span class="fl">0.5341</span><span class="op">^</span><span class="dv">2</span>
+VNE</code></pre></div>
+<pre><code>## [1] 12.55156</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VE =<span class="st"> </span>VT <span class="op">-</span><span class="st"> </span>VNE
+VE</code></pre></div>
+<pre><code>## [1] 20.53342</code></pre>
+<p><strong>2.5. ¿Se cumplen las hipótesis del modelo?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(m2)</code></pre></div>
+<p><img src="2016_17_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Se cumplen homocedasticidad y normalidad. No se cumple linealidad.</p>
+<p><strong>3. El modelo final que se ha estimado con los datos es:</strong></p>
+<p><span class="math display">\[ log(nburb) = 2.288 + 14.052*pjabon - 24.79*pjabon^2  - 0.5428*tjabon - 3.282*pjabon*tjabon \]</span></p>
+<p>donde la varianza residual es igual a 0,1866 y</p>
+<p><span class="math display">\[ 
+(X^T X)^{-1} =
+\begin{bmatrix}
+0.2863 &amp; -2.5353 &amp; 4.9025 &amp; -0.165 9 &amp; 0.6793 \\
+-2.5353 &amp; 32.3111 &amp; -75.5408 &amp; 0.6793 &amp; -3.7140 \\
+4.9025 &amp; -75.5408 &amp; 199.5456 &amp; 0.0000 &amp; 0.0000 \\
+-0.1659 &amp;  0.6793 &amp; 0.0000 &amp; 0.3318 &amp; -1.3587 \\
+0.6793 &amp; -3.7140 &amp; 0.0000 &amp; -1.3587 &amp; 7.4281 
+\end{bmatrix}
+\]</span></p>
+<p><strong>Utilizando esta información:</strong></p>
+<p><strong>3.1. Realizar los contrastes individuales e interpretar el resultado.</strong></p>
+<p><em>Contrastes</em></p>
+<p><span class="math display">\[
+H_0 : \beta_i = 0; \quad H_1 : \beta_i \neq 0, \quad i = 0,1,2,3,4
+\]</span></p>
+<p>El estadístico de los contrastes es:</p>
+<p><span class="math display">\[ t_i = \hat \beta_i / (\sqrt{\hat s_R^2 q_{ii}}), \ i= 0,1,2,3,4; \text{ Si H0 es cierta } t_i \rightarrow t_{43}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#*************************************************************</span>
+t0 =<span class="st"> </span><span class="fl">2.288</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="fl">0.1866</span><span class="op">*</span><span class="fl">0.2863</span>)
+t0</code></pre></div>
+<pre><code>## [1] 9.898959</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t0,<span class="dt">df=</span><span class="dv">43</span>))</code></pre></div>
+<pre><code>## [1] 1.173728e-12</code></pre>
+<p>Se rechaza H0, luego <span class="math inline">\(\beta_0\)</span> es distinto de cero.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#*************************************************************</span>
+t1 =<span class="st"> </span><span class="fl">14.052</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="fl">0.1866</span><span class="op">*</span><span class="fl">32.3111</span>)
+t1</code></pre></div>
+<pre><code>## [1] 5.722772</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t1,<span class="dt">df=</span><span class="dv">43</span>))</code></pre></div>
+<pre><code>## [1] 9.240692e-07</code></pre>
+<p>Se rechaza H0, luego <span class="math inline">\(\beta_1\)</span> es distinto de cero.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#*************************************************************</span>
+t2 =<span class="st"> </span><span class="fl">24.79</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="fl">0.1866</span><span class="op">*</span><span class="fl">199.5456</span>)
+t2</code></pre></div>
+<pre><code>## [1] 4.062559</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t2,<span class="dt">df=</span><span class="dv">43</span>))</code></pre></div>
+<pre><code>## [1] 0.0002020994</code></pre>
+<p>Se rechaza H0, luego <span class="math inline">\(\beta_2\)</span> es distinto de cero.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#*************************************************************</span>
+t3 =<span class="st"> </span><span class="fl">0.5428</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="fl">0.1866</span><span class="op">*</span><span class="fl">0.3318</span>)
+t3</code></pre></div>
+<pre><code>## [1] 2.181453</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t3,<span class="dt">df=</span><span class="dv">43</span>))</code></pre></div>
+<pre><code>## [1] 0.03466404</code></pre>
+<p>Se rechaza H0, luego <span class="math inline">\(\beta_3\)</span> es distinto de cero.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#*************************************************************</span>
+t4 =<span class="st"> </span><span class="fl">3.282</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="fl">0.1866</span><span class="op">*</span><span class="fl">7.4281</span>)
+t4</code></pre></div>
+<pre><code>## [1] 2.787686</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pvalor</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(t4,<span class="dt">df=</span><span class="dv">43</span>))</code></pre></div>
+<pre><code>## [1] 0.00787307</code></pre>
+<p>Se rechaza H0, luego <span class="math inline">\(\beta_4\)</span> es distinto de cero.</p>
+<p><strong>3.2. Calcular el coeficiente de determinación y compararlo con el del modelo del segundo apartado.</strong></p>
+<p>El coeficiente de determinación corregido es igual a:</p>
+<p><span class="math display">\[ \bar R^2 = 1 - \frac{\hat s_R^2}{\hat s_y^2} = \]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.1866</span><span class="op">/</span><span class="kw">var</span>(<span class="kw">log</span>(datos<span class="op">$</span>nburb))</code></pre></div>
+<pre><code>## [1] 0.7349191</code></pre>
+<p>El coeficiente de determinación corregido del modelo del segundo apartado es igual a 0.5947. Por tanto, el nuevo modelo es mejor modelo desde el punto de vista del coeficiente de determinación.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="curso-2017-18.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["DisRegETSII_examenes.pdf", "DisRegETSII_examenes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
