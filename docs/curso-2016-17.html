@@ -7,14 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R</title>
   <meta name="description" content="Examenes resueltos con R">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://seankross.com/bookdown-start/" />
+  <meta property="og:url" content="<a href="https://javiercara.github.io/DisRegETSII_examenes/" class="uri">https://javiercara.github.io/DisRegETSII_examenes/</a>" />
   
   <meta property="og:description" content="Examenes resueltos con R" />
-  <meta name="github-repo" content="seankross/bookdown-start" />
+  <meta name="github-repo" content="javiercara/DisRegETSII_examenes" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Examenes resueltos de Diseño de Experimentos y Modelos de Regresión con R" />
@@ -156,7 +156,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">1.1.2</span> Ejercicio B1 - Solución</h3>
 <p><strong>1. ¿El tamaño de los orificios afecta al porcentaje promedio de radón liberado? Utilizar <span class="math inline">\(\alpha\)</span> = 0.05 (es necesario especificar el modelo y los contrastes que se están utilizando para responder a la pregunta).</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo radon.txt</span>
-datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/radon.txt&#39;</span>,<span class="dt">header=</span>T)
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;datos/radon.txt&#39;</span>,<span class="dt">header=</span>T)
 <span class="co"># del que se muestran las primeras filas</span>
 <span class="kw">head</span>(datos)</code></pre></div>
 <pre><code>##   diametro radon
@@ -279,7 +279,7 @@ H_0 : \beta_5 = \beta_6; \quad H_1 : \beta_5 \neq \beta_6
 <h3><span class="header-section-number">1.2.2</span> Ejercicio A2 - Solución</h3>
 <p><strong>0. Lectura de datos</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo salario.txt</span>
-datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/salario.txt&#39;</span>,<span class="dt">header=</span>T)
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;datos/salario.txt&#39;</span>,<span class="dt">header=</span>T)
 <span class="co"># del que se muestran las primeras filas</span>
 <span class="kw">head</span>(datos)</code></pre></div>
 <pre><code>##   Degree Rank Sex Year YSdeg Salary
@@ -523,7 +523,7 @@ m3 =<span class="st"> </span><span class="kw">lm</span>(Salary <span class="op">
 <h3><span class="header-section-number">1.3.2</span> Ejercicio 2 - Solución</h3>
 <p><strong>0. Lectura de datos</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># se leen los datos del archivo burbujas.txt</span>
-datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/burbujas.txt&#39;</span>,<span class="dt">header=</span>T)
+datos =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;datos/burbujas.txt&#39;</span>,<span class="dt">header=</span>T)
 <span class="co"># del que se muestran las primeras filas</span>
 <span class="kw">head</span>(datos)</code></pre></div>
 <pre><code>##   exper pagua pjabon pglicer tjabon   tagua nburb1 nburb2 nburb3 nburb4
@@ -823,10 +823,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

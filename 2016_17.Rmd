@@ -20,7 +20,7 @@ En un artículo de *Environment International* (vol. 18, n.º 4) se describe un 
 
 ```{r}
 # se leen los datos del archivo radon.txt
-datos = read.table('data/radon.txt',header=T)
+datos = read.table('datos/radon.txt',header=T)
 # del que se muestran las primeras filas
 head(datos)
 ```
@@ -169,7 +169,7 @@ Nota: La matriz de varianzas-covarianzas de los parámetros estimados se calcula
 
 ```{r}
 # se leen los datos del archivo salario.txt
-datos = read.table('data/salario.txt',header=T)
+datos = read.table('datos/salario.txt',header=T)
 # del que se muestran las primeras filas
 head(datos)
 
@@ -399,7 +399,7 @@ Utilizando esta información:
 
 ```{r}
 # se leen los datos del archivo burbujas.txt
-datos = read.table('data/burbujas.txt',header=T)
+datos = read.table('datos/burbujas.txt',header=T)
 # del que se muestran las primeras filas
 head(datos)
 ```

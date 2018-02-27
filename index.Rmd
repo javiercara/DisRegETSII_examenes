@@ -7,11 +7,19 @@ documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: seankross/bookdown-start
-url: 'http\://seankross.com/bookdown-start/'
+github-repo: javiercara/DisRegETSII_examenes
+url: 'https://javiercara.github.io/DisRegETSII_examenes/'
 description: "Examenes resueltos con R"
 ---
 
 # Introducción {-}
 
 Este documento contiene exámenes resueltos con R de la asignatura *Diseño de Experimentos y Modelos de Regresión* impartida en la ETSI Industriales de la Universidad Politécnica de Madrid.
+
+Los datos y funciones de R que se utilizan en la asignatura se encuentran en el paquete de R llamado DisRegETSII. Para instalar este paquete hay que teclear en la consola:
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("javiercara/DisRegETSII")
+```
+
